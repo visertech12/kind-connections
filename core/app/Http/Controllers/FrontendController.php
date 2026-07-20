@@ -186,10 +186,11 @@ class FrontendController extends Controller
 
         $license = $request->license; // 1 = regular, 2 = extended
         $extend_support = $request->extend_support ? true : false;
+        $install_service = $request->boolean('install_service');
 
         $page_title = 'Checkout - ' . $product->name;
 
-        return view('template.product.checkout', compact('product', 'page_title', 'license', 'extend_support'));
+        return view('template.product.checkout', compact('product', 'page_title', 'license', 'extend_support', 'install_service'));
     }
 
     public function productPlaceOrder(Request $request, $slug)
@@ -201,6 +202,7 @@ class FrontendController extends Controller
                 'slug' => $slug,
                 'license' => $request->input('license'),
                 'extend_support' => $request->boolean('extend_support'),
+                'install_service' => $request->boolean('install_service'),
             ]);
             return redirect()->route('user.login')->with('info', 'Please log in to complete your purchase.');
         }
@@ -211,11 +213,13 @@ class FrontendController extends Controller
 
             $license = $request->input('license', '1');
             $extend_support = $request->boolean('extend_support');
+            $install_service = $request->boolean('install_service');
 
             $pRegular = (float) $product->getOriginal('regular_price');
             $attrs    = $product->getOriginal('attributes');
             $attrs    = is_array($attrs) ? $attrs : (json_decode($attrs, true) ?: []);
             $pExtended = isset($attrs['Extended Price']) ? (float) $attrs['Extended Price'] : 0;
+            $installFee = isset($attrs['Install Fee']) ? (float) $attrs['Install Fee'] : 0;
 
             $price = ($license == '1') ? $pRegular : ($pExtended > 0 ? $pExtended : $pRegular * 6);
 
@@ -227,6 +231,9 @@ class FrontendController extends Controller
             $total = $price;
             if ($extend_support) {
                 $total += $supportPromo;
+            }
+            if ($install_service && $installFee > 0) {
+                $total += $installFee;
             }
 
             $invoice = new \App\Models\Invoice();
@@ -253,6 +260,15 @@ class FrontendController extends Controller
                 $item2->description = 'Extended Support (6 months)';
                 $item2->amount      = $supportPromo;
                 $item2->save();
+            }
+
+            if ($install_service && $installFee > 0) {
+                $item3 = new \App\Models\InvoiceItem();
+                $item3->invoice_id  = $invoice->id;
+                $item3->description = 'Server Install Service';
+                $item3->amount      = $installFee;
+                $item3->details     = json_encode(['addon' => 'server_install_service']);
+                $item3->save();
             }
 
             return redirect()->route('user.invoice.details', $invoice->invid)
