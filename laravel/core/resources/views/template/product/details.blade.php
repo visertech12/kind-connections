@@ -247,17 +247,17 @@
                         <div class="ds-card ds-card--white ds-card--bordered">
                             <h5 class="ds-card-title">
                                 <i class="fa-solid fa-screwdriver-wrench text--base me-2"></i>
-                                Demo Install Service
+                                Server Install Service
                             </h5>
                             <p class="ds-price-note mb-3">
-                                Let our experts install and configure a live demo of this product on your server. Includes setup, database, sample data and basic configuration.
+                                Our experts will install and fully configure this product live on your own server (hosting/VPS). Real production install — not a demo. Includes setup, database, SSL and basic configuration.
                             </p>
                             <ul class="ds-meta-list mb-3">
                                 <li class="ds-meta-item">
-                                    <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> Full script installation</span>
+                                    <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> Full script installation on your server</span>
                                 </li>
                                 <li class="ds-meta-item">
-                                    <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> Demo data import</span>
+                                    <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> Database &amp; sample data import</span>
                                 </li>
                                 <li class="ds-meta-item">
                                     <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> Domain &amp; SSL configuration</span>
@@ -270,7 +270,7 @@
                                 <span class="ds-license-name">Service Fee</span>
                                 <span class="ds-license-price">${{ $installFee + 0 }} USD</span>
                             </div>
-                            <a href="{{ route('support') }}?subject=Demo+Install+Service+for+{{ urlencode($productName) }}" class="btn btn--base outline w-100 text-center">
+                            <a href="{{ route('support') }}?subject=Server+Install+Service+for+{{ urlencode($productName) }}" class="btn btn--base outline w-100 text-center">
                                 <span class="icon"><i class="fa-solid fa-rocket"></i></span>
                                 Request Install Service
                             </a>
@@ -413,6 +413,25 @@
                                 </span>
                             </label>
                         </div>
+
+                        <hr class="pm-divider" />
+
+                        <div class="pm-section-head">
+                            <span class="pm-section-label">Server Install Service</span>
+                            <span class="pm-section-link">Optional add-on</span>
+                        </div>
+
+                        <div class="pm-support-options">
+                            <input type="checkbox" name="install_service" id="install_service" hidden />
+                            <label for="install_service" class="ds-license-item pm-support-item">
+                                <span class="ds-license-checkbox"></span>
+                                <span class="ds-license-info">
+                                    <span class="ds-license-name">Install &amp; configure on my server (real install, not demo)</span>
+                                    <span class="ds-license-desc">Our team installs this product live on your own server/hosting. Includes DB, SSL &amp; 7 days post-install support.</span>
+                                </span>
+                                <span class="ds-license-price">+${{ $installFee + 0 }}</span>
+                            </label>
+                        </div>
                     </div>
 
                     <hr class="pm-divider pm-divider--footer" />
@@ -440,6 +459,7 @@
         $(document).ready(function() {
             var regularPrice = {{ $product->regular_price + 0 }};
             var extendedPrice = {{ $extendedPrice }};
+            var installFee = {{ $installFee + 0 }};
 
             function updateTotalPrice() {
                 var totalPrice = 0;
@@ -458,13 +478,16 @@
                 if ($('#support').is(':checked')) {
                     totalPrice += supportPromoPrice;
                 }
+                if ($('#install_service').is(':checked')) {
+                    totalPrice += installFee;
+                }
 
                 $('.grand-total').text(totalPrice.toFixed(2));
                 $('.support-price').text(supportPrice.toFixed(2));
                 $('.support-price-promo').text(supportPromoPrice.toFixed(2));
             }
 
-            $('input[name="license"], #support').on('change', updateTotalPrice);
+            $('input[name="license"], #support, #install_service').on('change', updateTotalPrice);
             updateTotalPrice();
         });
     </script>
