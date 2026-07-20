@@ -92,9 +92,16 @@
               $supportPrice = $price * 0.3; // 30% of price
               $supportPromo = $supportPrice * 0.8; // 20% discount
 
+              $attrsArr = is_array($product->attributes) ? $product->attributes : (json_decode($product->attributes, true) ?: []);
+              $installFee = isset($attrsArr['Install Fee']) ? (float) $attrsArr['Install Fee'] : 19;
+              $install_service = !empty($install_service);
+
               $total = $price;
               if($extend_support) {
                   $total += $supportPromo;
+              }
+              if($install_service && $installFee > 0) {
+                  $total += $installFee;
               }
           @endphp
 
@@ -108,6 +115,10 @@
               <p class="text-muted fs-12">Support: <strong class="text-dark">Extended Support (6 months)</strong> (+${{ number_format($supportPromo, 2) }})</p>
               @else
               <p class="text-muted fs-12">Support: <strong class="text-dark">Standard Support (3 months)</strong></p>
+              @endif
+              @if($install_service && $installFee > 0)
+              <p class="text-muted fs-12">Add-on: <strong class="text-dark">Server Install Service</strong> (+${{ number_format($installFee, 2) }})</p>
+              <p class="text-muted fs-12">Install &amp; configure on my server (real install, not demo). Includes DB, SSL &amp; 7 days post-install support.</p>
               @endif
             </div>
             <div class="choose-domain-item__right flex-align">
@@ -131,6 +142,9 @@
             @if($extend_support)
             <li class="total-list__item flex-between"> <span class="text">Support Upgrade</span> <span class="fw-bold">${{ number_format($supportPromo, 2) }}</span> </li>
             @endif
+            @if($install_service && $installFee > 0)
+            <li class="total-list__item flex-between"> <span class="text">Server Install Service</span> <span class="fw-bold">${{ number_format($installFee, 2) }}</span> </li>
+            @endif
             <li class="total-list__item flex-between mt-2 pt-2 border-top"> <span class="text">Total</span> <span class="fw-bold">${{ number_format($total, 2) }}</span> </li>
             <li class="total-list__item flex-between"> <span class="text">Total due today</span> <span class="fw-bold">${{ number_format($total, 2) }}</span> </li>
           </ul>
@@ -141,6 +155,7 @@
               @csrf
               <input type="hidden" name="license" value="{{ $license }}">
               <input type="hidden" name="extend_support" value="{{ $extend_support ? 1 : 0 }}">
+              <input type="hidden" name="install_service" value="{{ $install_service ? 1 : 0 }}">
               
               <div class="form-group">
                 <input type="text" name="promo" class="form--control" placeholder="Coupon Code (optional)">
