@@ -50,6 +50,19 @@
                         </div>
                     </div>
 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Extended License Price ($)</label>
+                            <input type="number" step="0.01" min="0" name="extended_price" class="form-control" placeholder="0.00" value="{{ old('extended_price') }}">
+                            <div class="form-hint">Leave blank or 0 if no extended license</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Server Install Service Fee ($)</label>
+                            <input type="number" step="0.01" min="0" name="install_fee" class="form-control" placeholder="19.00" value="{{ old('install_fee') }}">
+                            <div class="form-hint">Charged when buyer chooses "Install &amp; configure on my server". Leave blank to use default ($19).</div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="form-label">Demo URL</label>
                         <input type="url" name="demo_url" class="form-control" placeholder="https://demo.example.com" value="{{ old('demo_url') }}">
