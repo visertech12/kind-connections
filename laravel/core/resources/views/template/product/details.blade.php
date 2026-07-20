@@ -183,6 +183,29 @@
                             <div class="item-detail-block mb-4">
                                 <div class="item-detail-block-header">
                                     <span class="icon">
+                                        <i class="fa-solid fa-box-open text--base"></i>
+                                    </span>
+                                    <div class="content">
+                                        <h4 class="title">What's Included</h4>
+                                    </div>
+                                </div>
+                                <div class="item-detail-block-body">
+                                    <ul class="list-unstyled mb-0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;">
+                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Full Source Code</strong> — complete, uncompiled files</li>
+                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Database (SQL)</strong> — ready-to-import schema &amp; sample data</li>
+                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Installation Guide</strong> — step-by-step PDF documentation</li>
+                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>User &amp; Admin Docs</strong> — full usage documentation</li>
+                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Lifetime Free Updates</strong> — all future versions included</li>
+                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>6 Months Support</strong> — bug fixes &amp; setup help via tickets</li>
+                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Commercial License</strong> — use on your own project</li>
+                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>100% Malware Free</strong> — security scanned &amp; verified</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="item-detail-block mb-4">
+                                <div class="item-detail-block-header">
+                                    <span class="icon">
                                         <i class="fa-solid fa-headset text--base"></i>
                                     </span>
                                     <div class="content">
