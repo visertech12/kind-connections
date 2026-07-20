@@ -87,6 +87,10 @@ class UserController extends Controller
         $user->profile_complete = 1;
         $user->save();
 
+        if (session()->has('pending_order')) {
+            return redirect()->route('user.product.order.process')->with('success', 'Profile completed successfully. Your order is being created.');
+        }
+
         return redirect()->route('user.home')->with('success', 'Profile completed successfully.');
     }
 
@@ -359,7 +363,7 @@ class UserController extends Controller
     {
         $pending = session()->get('pending_order');
         if (!$pending) {
-            return redirect()->route('user.home');
+            return redirect()->route('user.home')->with('error', 'No pending checkout found. Please choose the product again.');
         }
 
         $slug = $pending['slug'];

@@ -209,8 +209,22 @@ class AuthController extends Controller
             }
         }
 
+        $pending = session()->get('pending_order');
         Auth::guard('web')->login($user);
+        session()->regenerate();
+        if ($pending) {
+            session()->put('pending_order', $pending);
+        }
         $this->storeLoginLog($user);
+
+        if ($user->profile_complete == 0) {
+            return redirect()->route('user.profile.complete')->with('success', 'Logged in! Please complete your profile first.');
+        }
+
+        if (session()->has('pending_order')) {
+            return redirect()->route('user.product.order.process');
+        }
+
         return redirect()->route('user.home')->with('success', 'Logged in via ' . ucfirst($provider) . ' successfully.');
     }
 }
