@@ -9,38 +9,549 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TosRouteImport } from './routes/tos'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as RefundRouteImport } from './routes/refund'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ForgotRouteImport } from './routes/forgot'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookMeetingRouteImport } from './routes/book-meeting'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServiceWebRouteImport } from './routes/service.web'
+import { Route as ServiceUiuxRouteImport } from './routes/service.uiux'
+import { Route as ServiceMarketingRouteImport } from './routes/service.marketing'
+import { Route as ServiceHostingRouteImport } from './routes/service.hosting'
+import { Route as ServiceConsultancyRouteImport } from './routes/service.consultancy'
+import { Route as ServiceAppRouteImport } from './routes/service.app'
+import { Route as MarketingSeoRouteImport } from './routes/marketing.seo'
+import { Route as MarketingPrRouteImport } from './routes/marketing.pr'
+import { Route as MarketingLinkpyramidRouteImport } from './routes/marketing.linkpyramid'
+import { Route as MarketingBrandingRouteImport } from './routes/marketing.branding'
+import { Route as MarketingBacklinkRouteImport } from './routes/marketing.backlink'
+import { Route as MarketingAdvertisingRouteImport } from './routes/marketing.advertising'
+import { Route as HostingVpsRouteImport } from './routes/hosting.vps'
+import { Route as HostingSmtpRouteImport } from './routes/hosting.smtp'
+import { Route as HostingPremiumRouteImport } from './routes/hosting.premium'
+import { Route as HostingDedicatedRouteImport } from './routes/hosting.dedicated'
+import { Route as HostingClusterRouteImport } from './routes/hosting.cluster'
+import { Route as HostingBudgetRouteImport } from './routes/hosting.budget'
+import { Route as DomainRegisterRouteImport } from './routes/domain.register'
 
+const TosRoute = TosRouteImport.update({
+  id: '/tos',
+  path: '/tos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundRoute = RefundRouteImport.update({
+  id: '/refund',
+  path: '/refund',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotRoute = ForgotRouteImport.update({
+  id: '/forgot',
+  path: '/forgot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookMeetingRoute = BookMeetingRouteImport.update({
+  id: '/book-meeting',
+  path: '/book-meeting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServiceWebRoute = ServiceWebRouteImport.update({
+  id: '/service/web',
+  path: '/service/web',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceUiuxRoute = ServiceUiuxRouteImport.update({
+  id: '/service/uiux',
+  path: '/service/uiux',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceMarketingRoute = ServiceMarketingRouteImport.update({
+  id: '/service/marketing',
+  path: '/service/marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceHostingRoute = ServiceHostingRouteImport.update({
+  id: '/service/hosting',
+  path: '/service/hosting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceConsultancyRoute = ServiceConsultancyRouteImport.update({
+  id: '/service/consultancy',
+  path: '/service/consultancy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAppRoute = ServiceAppRouteImport.update({
+  id: '/service/app',
+  path: '/service/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingSeoRoute = MarketingSeoRouteImport.update({
+  id: '/marketing/seo',
+  path: '/marketing/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingPrRoute = MarketingPrRouteImport.update({
+  id: '/marketing/pr',
+  path: '/marketing/pr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingLinkpyramidRoute = MarketingLinkpyramidRouteImport.update({
+  id: '/marketing/linkpyramid',
+  path: '/marketing/linkpyramid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingBrandingRoute = MarketingBrandingRouteImport.update({
+  id: '/marketing/branding',
+  path: '/marketing/branding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingBacklinkRoute = MarketingBacklinkRouteImport.update({
+  id: '/marketing/backlink',
+  path: '/marketing/backlink',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingAdvertisingRoute = MarketingAdvertisingRouteImport.update({
+  id: '/marketing/advertising',
+  path: '/marketing/advertising',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostingVpsRoute = HostingVpsRouteImport.update({
+  id: '/hosting/vps',
+  path: '/hosting/vps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostingSmtpRoute = HostingSmtpRouteImport.update({
+  id: '/hosting/smtp',
+  path: '/hosting/smtp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostingPremiumRoute = HostingPremiumRouteImport.update({
+  id: '/hosting/premium',
+  path: '/hosting/premium',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostingDedicatedRoute = HostingDedicatedRouteImport.update({
+  id: '/hosting/dedicated',
+  path: '/hosting/dedicated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostingClusterRoute = HostingClusterRouteImport.update({
+  id: '/hosting/cluster',
+  path: '/hosting/cluster',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostingBudgetRoute = HostingBudgetRouteImport.update({
+  id: '/hosting/budget',
+  path: '/hosting/budget',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomainRegisterRoute = DomainRegisterRouteImport.update({
+  id: '/domain/register',
+  path: '/domain/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book-meeting': typeof BookMeetingRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/forgot': typeof ForgotRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/products': typeof ProductsRoute
+  '/refund': typeof RefundRoute
+  '/register': typeof RegisterRoute
+  '/sitemap': typeof SitemapRoute
+  '/support': typeof SupportRoute
+  '/tos': typeof TosRoute
+  '/domain/register': typeof DomainRegisterRoute
+  '/hosting/budget': typeof HostingBudgetRoute
+  '/hosting/cluster': typeof HostingClusterRoute
+  '/hosting/dedicated': typeof HostingDedicatedRoute
+  '/hosting/premium': typeof HostingPremiumRoute
+  '/hosting/smtp': typeof HostingSmtpRoute
+  '/hosting/vps': typeof HostingVpsRoute
+  '/marketing/advertising': typeof MarketingAdvertisingRoute
+  '/marketing/backlink': typeof MarketingBacklinkRoute
+  '/marketing/branding': typeof MarketingBrandingRoute
+  '/marketing/linkpyramid': typeof MarketingLinkpyramidRoute
+  '/marketing/pr': typeof MarketingPrRoute
+  '/marketing/seo': typeof MarketingSeoRoute
+  '/service/app': typeof ServiceAppRoute
+  '/service/consultancy': typeof ServiceConsultancyRoute
+  '/service/hosting': typeof ServiceHostingRoute
+  '/service/marketing': typeof ServiceMarketingRoute
+  '/service/uiux': typeof ServiceUiuxRoute
+  '/service/web': typeof ServiceWebRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book-meeting': typeof BookMeetingRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/forgot': typeof ForgotRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/products': typeof ProductsRoute
+  '/refund': typeof RefundRoute
+  '/register': typeof RegisterRoute
+  '/sitemap': typeof SitemapRoute
+  '/support': typeof SupportRoute
+  '/tos': typeof TosRoute
+  '/domain/register': typeof DomainRegisterRoute
+  '/hosting/budget': typeof HostingBudgetRoute
+  '/hosting/cluster': typeof HostingClusterRoute
+  '/hosting/dedicated': typeof HostingDedicatedRoute
+  '/hosting/premium': typeof HostingPremiumRoute
+  '/hosting/smtp': typeof HostingSmtpRoute
+  '/hosting/vps': typeof HostingVpsRoute
+  '/marketing/advertising': typeof MarketingAdvertisingRoute
+  '/marketing/backlink': typeof MarketingBacklinkRoute
+  '/marketing/branding': typeof MarketingBrandingRoute
+  '/marketing/linkpyramid': typeof MarketingLinkpyramidRoute
+  '/marketing/pr': typeof MarketingPrRoute
+  '/marketing/seo': typeof MarketingSeoRoute
+  '/service/app': typeof ServiceAppRoute
+  '/service/consultancy': typeof ServiceConsultancyRoute
+  '/service/hosting': typeof ServiceHostingRoute
+  '/service/marketing': typeof ServiceMarketingRoute
+  '/service/uiux': typeof ServiceUiuxRoute
+  '/service/web': typeof ServiceWebRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book-meeting': typeof BookMeetingRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/forgot': typeof ForgotRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/products': typeof ProductsRoute
+  '/refund': typeof RefundRoute
+  '/register': typeof RegisterRoute
+  '/sitemap': typeof SitemapRoute
+  '/support': typeof SupportRoute
+  '/tos': typeof TosRoute
+  '/domain/register': typeof DomainRegisterRoute
+  '/hosting/budget': typeof HostingBudgetRoute
+  '/hosting/cluster': typeof HostingClusterRoute
+  '/hosting/dedicated': typeof HostingDedicatedRoute
+  '/hosting/premium': typeof HostingPremiumRoute
+  '/hosting/smtp': typeof HostingSmtpRoute
+  '/hosting/vps': typeof HostingVpsRoute
+  '/marketing/advertising': typeof MarketingAdvertisingRoute
+  '/marketing/backlink': typeof MarketingBacklinkRoute
+  '/marketing/branding': typeof MarketingBrandingRoute
+  '/marketing/linkpyramid': typeof MarketingLinkpyramidRoute
+  '/marketing/pr': typeof MarketingPrRoute
+  '/marketing/seo': typeof MarketingSeoRoute
+  '/service/app': typeof ServiceAppRoute
+  '/service/consultancy': typeof ServiceConsultancyRoute
+  '/service/hosting': typeof ServiceHostingRoute
+  '/service/marketing': typeof ServiceMarketingRoute
+  '/service/uiux': typeof ServiceUiuxRoute
+  '/service/web': typeof ServiceWebRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/book-meeting'
+    | '/contact'
+    | '/faq'
+    | '/forgot'
+    | '/login'
+    | '/privacy'
+    | '/products'
+    | '/refund'
+    | '/register'
+    | '/sitemap'
+    | '/support'
+    | '/tos'
+    | '/domain/register'
+    | '/hosting/budget'
+    | '/hosting/cluster'
+    | '/hosting/dedicated'
+    | '/hosting/premium'
+    | '/hosting/smtp'
+    | '/hosting/vps'
+    | '/marketing/advertising'
+    | '/marketing/backlink'
+    | '/marketing/branding'
+    | '/marketing/linkpyramid'
+    | '/marketing/pr'
+    | '/marketing/seo'
+    | '/service/app'
+    | '/service/consultancy'
+    | '/service/hosting'
+    | '/service/marketing'
+    | '/service/uiux'
+    | '/service/web'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/book-meeting'
+    | '/contact'
+    | '/faq'
+    | '/forgot'
+    | '/login'
+    | '/privacy'
+    | '/products'
+    | '/refund'
+    | '/register'
+    | '/sitemap'
+    | '/support'
+    | '/tos'
+    | '/domain/register'
+    | '/hosting/budget'
+    | '/hosting/cluster'
+    | '/hosting/dedicated'
+    | '/hosting/premium'
+    | '/hosting/smtp'
+    | '/hosting/vps'
+    | '/marketing/advertising'
+    | '/marketing/backlink'
+    | '/marketing/branding'
+    | '/marketing/linkpyramid'
+    | '/marketing/pr'
+    | '/marketing/seo'
+    | '/service/app'
+    | '/service/consultancy'
+    | '/service/hosting'
+    | '/service/marketing'
+    | '/service/uiux'
+    | '/service/web'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/book-meeting'
+    | '/contact'
+    | '/faq'
+    | '/forgot'
+    | '/login'
+    | '/privacy'
+    | '/products'
+    | '/refund'
+    | '/register'
+    | '/sitemap'
+    | '/support'
+    | '/tos'
+    | '/domain/register'
+    | '/hosting/budget'
+    | '/hosting/cluster'
+    | '/hosting/dedicated'
+    | '/hosting/premium'
+    | '/hosting/smtp'
+    | '/hosting/vps'
+    | '/marketing/advertising'
+    | '/marketing/backlink'
+    | '/marketing/branding'
+    | '/marketing/linkpyramid'
+    | '/marketing/pr'
+    | '/marketing/seo'
+    | '/service/app'
+    | '/service/consultancy'
+    | '/service/hosting'
+    | '/service/marketing'
+    | '/service/uiux'
+    | '/service/web'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BookMeetingRoute: typeof BookMeetingRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  ForgotRoute: typeof ForgotRoute
+  LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProductsRoute: typeof ProductsRoute
+  RefundRoute: typeof RefundRoute
+  RegisterRoute: typeof RegisterRoute
+  SitemapRoute: typeof SitemapRoute
+  SupportRoute: typeof SupportRoute
+  TosRoute: typeof TosRoute
+  DomainRegisterRoute: typeof DomainRegisterRoute
+  HostingBudgetRoute: typeof HostingBudgetRoute
+  HostingClusterRoute: typeof HostingClusterRoute
+  HostingDedicatedRoute: typeof HostingDedicatedRoute
+  HostingPremiumRoute: typeof HostingPremiumRoute
+  HostingSmtpRoute: typeof HostingSmtpRoute
+  HostingVpsRoute: typeof HostingVpsRoute
+  MarketingAdvertisingRoute: typeof MarketingAdvertisingRoute
+  MarketingBacklinkRoute: typeof MarketingBacklinkRoute
+  MarketingBrandingRoute: typeof MarketingBrandingRoute
+  MarketingLinkpyramidRoute: typeof MarketingLinkpyramidRoute
+  MarketingPrRoute: typeof MarketingPrRoute
+  MarketingSeoRoute: typeof MarketingSeoRoute
+  ServiceAppRoute: typeof ServiceAppRoute
+  ServiceConsultancyRoute: typeof ServiceConsultancyRoute
+  ServiceHostingRoute: typeof ServiceHostingRoute
+  ServiceMarketingRoute: typeof ServiceMarketingRoute
+  ServiceUiuxRoute: typeof ServiceUiuxRoute
+  ServiceWebRoute: typeof ServiceWebRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tos': {
+      id: '/tos'
+      path: '/tos'
+      fullPath: '/tos'
+      preLoaderRoute: typeof TosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund': {
+      id: '/refund'
+      path: '/refund'
+      fullPath: '/refund'
+      preLoaderRoute: typeof RefundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot': {
+      id: '/forgot'
+      path: '/forgot'
+      fullPath: '/forgot'
+      preLoaderRoute: typeof ForgotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-meeting': {
+      id: '/book-meeting'
+      path: '/book-meeting'
+      fullPath: '/book-meeting'
+      preLoaderRoute: typeof BookMeetingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +559,176 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/service/web': {
+      id: '/service/web'
+      path: '/service/web'
+      fullPath: '/service/web'
+      preLoaderRoute: typeof ServiceWebRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service/uiux': {
+      id: '/service/uiux'
+      path: '/service/uiux'
+      fullPath: '/service/uiux'
+      preLoaderRoute: typeof ServiceUiuxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service/marketing': {
+      id: '/service/marketing'
+      path: '/service/marketing'
+      fullPath: '/service/marketing'
+      preLoaderRoute: typeof ServiceMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service/hosting': {
+      id: '/service/hosting'
+      path: '/service/hosting'
+      fullPath: '/service/hosting'
+      preLoaderRoute: typeof ServiceHostingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service/consultancy': {
+      id: '/service/consultancy'
+      path: '/service/consultancy'
+      fullPath: '/service/consultancy'
+      preLoaderRoute: typeof ServiceConsultancyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service/app': {
+      id: '/service/app'
+      path: '/service/app'
+      fullPath: '/service/app'
+      preLoaderRoute: typeof ServiceAppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/seo': {
+      id: '/marketing/seo'
+      path: '/marketing/seo'
+      fullPath: '/marketing/seo'
+      preLoaderRoute: typeof MarketingSeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/pr': {
+      id: '/marketing/pr'
+      path: '/marketing/pr'
+      fullPath: '/marketing/pr'
+      preLoaderRoute: typeof MarketingPrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/linkpyramid': {
+      id: '/marketing/linkpyramid'
+      path: '/marketing/linkpyramid'
+      fullPath: '/marketing/linkpyramid'
+      preLoaderRoute: typeof MarketingLinkpyramidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/branding': {
+      id: '/marketing/branding'
+      path: '/marketing/branding'
+      fullPath: '/marketing/branding'
+      preLoaderRoute: typeof MarketingBrandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/backlink': {
+      id: '/marketing/backlink'
+      path: '/marketing/backlink'
+      fullPath: '/marketing/backlink'
+      preLoaderRoute: typeof MarketingBacklinkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/advertising': {
+      id: '/marketing/advertising'
+      path: '/marketing/advertising'
+      fullPath: '/marketing/advertising'
+      preLoaderRoute: typeof MarketingAdvertisingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hosting/vps': {
+      id: '/hosting/vps'
+      path: '/hosting/vps'
+      fullPath: '/hosting/vps'
+      preLoaderRoute: typeof HostingVpsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hosting/smtp': {
+      id: '/hosting/smtp'
+      path: '/hosting/smtp'
+      fullPath: '/hosting/smtp'
+      preLoaderRoute: typeof HostingSmtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hosting/premium': {
+      id: '/hosting/premium'
+      path: '/hosting/premium'
+      fullPath: '/hosting/premium'
+      preLoaderRoute: typeof HostingPremiumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hosting/dedicated': {
+      id: '/hosting/dedicated'
+      path: '/hosting/dedicated'
+      fullPath: '/hosting/dedicated'
+      preLoaderRoute: typeof HostingDedicatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hosting/cluster': {
+      id: '/hosting/cluster'
+      path: '/hosting/cluster'
+      fullPath: '/hosting/cluster'
+      preLoaderRoute: typeof HostingClusterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hosting/budget': {
+      id: '/hosting/budget'
+      path: '/hosting/budget'
+      fullPath: '/hosting/budget'
+      preLoaderRoute: typeof HostingBudgetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/domain/register': {
+      id: '/domain/register'
+      path: '/domain/register'
+      fullPath: '/domain/register'
+      preLoaderRoute: typeof DomainRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BookMeetingRoute: BookMeetingRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  ForgotRoute: ForgotRoute,
+  LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProductsRoute: ProductsRoute,
+  RefundRoute: RefundRoute,
+  RegisterRoute: RegisterRoute,
+  SitemapRoute: SitemapRoute,
+  SupportRoute: SupportRoute,
+  TosRoute: TosRoute,
+  DomainRegisterRoute: DomainRegisterRoute,
+  HostingBudgetRoute: HostingBudgetRoute,
+  HostingClusterRoute: HostingClusterRoute,
+  HostingDedicatedRoute: HostingDedicatedRoute,
+  HostingPremiumRoute: HostingPremiumRoute,
+  HostingSmtpRoute: HostingSmtpRoute,
+  HostingVpsRoute: HostingVpsRoute,
+  MarketingAdvertisingRoute: MarketingAdvertisingRoute,
+  MarketingBacklinkRoute: MarketingBacklinkRoute,
+  MarketingBrandingRoute: MarketingBrandingRoute,
+  MarketingLinkpyramidRoute: MarketingLinkpyramidRoute,
+  MarketingPrRoute: MarketingPrRoute,
+  MarketingSeoRoute: MarketingSeoRoute,
+  ServiceAppRoute: ServiceAppRoute,
+  ServiceConsultancyRoute: ServiceConsultancyRoute,
+  ServiceHostingRoute: ServiceHostingRoute,
+  ServiceMarketingRoute: ServiceMarketingRoute,
+  ServiceUiuxRoute: ServiceUiuxRoute,
+  ServiceWebRoute: ServiceWebRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
