@@ -323,7 +323,6 @@
                         </div>
                     </div>
 
-                    <div class="flex-between">
                     @php $installFee = !empty($attrs['Install Fee']) ? (float)$attrs['Install Fee'] : 0; @endphp
                     @if($installFee > 0)
                     <div class="order-product-block">
