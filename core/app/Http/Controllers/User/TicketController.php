@@ -63,6 +63,9 @@ class TicketController extends Controller
         $ticket->email = $user->email;
         $ticket->ticket = rand(100000, 999999);
         $ticket->subject = $request->subject;
+        if ($request->filled('department')) {
+            $ticket->subject = '[' . strtoupper(str_replace('_', ' ', $request->department)) . '] ' . $request->subject;
+        }
         $ticket->priority = $request->priority;
         $ticket->status = 0;
         $ticket->last_reply = now();
