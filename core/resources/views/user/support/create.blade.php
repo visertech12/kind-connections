@@ -5,14 +5,23 @@
         <div class="custom--card card">
             <div class="card-header d-flex flex-wrap align-items-center justify-content-between">
                 <h2 class="card-header__title">{{ __($pageTitle) }}</h2>
-                <a href="{{ route('user.ticket.index') }}" class="btn btn-sm btn--danger">
-                    <i class="fa fa-reply"></i> @lang('My Tickets')
-                </a>
+                <div class="d-flex gap-2">
+                    <a href="{{ route('user.ticket.new') }}" class="btn btn-sm btn--warning">
+                        <i class="fa fa-exchange-alt"></i> @lang('Change Department')
+                    </a>
+                    <a href="{{ route('user.ticket.index') }}" class="btn btn-sm btn--danger">
+                        <i class="fa fa-reply"></i> @lang('My Tickets')
+                    </a>
+                </div>
             </div>
             <div class="card-body">
                 <form action="{{ route('user.ticket.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    
+                    @isset($department)
+                        <input type="hidden" name="department" value="{{ $department }}">
+                        <div class="alert alert--info mb-3"><strong>@lang('Department'):</strong> {{ $selectedDepartment['title'] ?? $department }}</div>
+                    @endisset
+
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
