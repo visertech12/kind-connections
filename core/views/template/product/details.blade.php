@@ -324,6 +324,31 @@
                     </div>
 
                     <div class="flex-between">
+                    @php $installFee = !empty($attrs['Install Fee']) ? (float)$attrs['Install Fee'] : 0; @endphp
+                    @if($installFee > 0)
+                    <div class="order-product-block">
+                        <div class="flex-between mb-3 mb-sm-4">
+                            <label class="form--label-title">Server Install Service</label>
+                            <span class="external-link">+${{ number_format($installFee,2) }}</span>
+                        </div>
+                        <div class="flex-align">
+                            <label for="install_service" class="order-extend">
+                                <input type="checkbox" hidden id="install_service" name="install_service" value="1">
+                                <span class="check-type-icon">
+                                    <svg class="order-check-circle" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="check" d="M1 5L4.5 8.5L12.5 0.5" stroke="currentColor" stroke-linecap="round" /></svg>
+                                </span>
+                                <span class="support--wrapper">
+                                    <span class="order-extend-title">Professional installation on your server</span>
+                                    <span class="flex-align gap-2">
+                                        <span class="support-price-promo-wrapper">${{ number_format($installFee,2) }}</span>
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    @endif
+
+                    <div class="flex-between">
                         <h5 class="mb-0 grand-total-price">
                             <span class="d-block grand-total-title">Total Price</span>
                             $<span class="grand-total"></span> USD
