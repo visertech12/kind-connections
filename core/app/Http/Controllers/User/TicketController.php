@@ -27,7 +27,6 @@ class TicketController extends Controller
             'priority_support' => ['title' => 'Priority Support', 'desc' => 'For <b>technical support</b> and assistance with our software. You should have an <u>extended license</u> to use this department.', 'highlight' => 'bg--highlighted'],
             'priority_install' => ['title' => 'Priority Install', 'desc' => 'For <b>installation support</b> and assistance. You should have an <u>extended license</u> to use this department.', 'highlight' => 'bg--highlighted'],
             'paid_support' => ['title' => 'Paid Support', 'desc' => 'Get real-time issue resolution by our expert technical team.', 'highlight' => 'bg--superhighlighted'],
-            'tiktok' => ['title' => 'TikTok', 'desc' => 'For TikTok script, API, marketing and related service inquiries.', 'highlight' => 'bg--superhighlighted'],
             'sales' => ['title' => 'Sales', 'desc' => 'For pre-sales and after-sales questions regarding all our services.', 'highlight' => ''],
             'support' => ['title' => 'Support', 'desc' => 'Technical support and assistance of our software/script.', 'highlight' => ''],
             'install' => ['title' => 'Installation', 'desc' => 'For installation support and assistance of our software/script.', 'highlight' => ''],
