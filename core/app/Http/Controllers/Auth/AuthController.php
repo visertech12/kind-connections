@@ -76,33 +76,7 @@ class AuthController extends Controller
             }
 
             $user = Auth::guard('web')->user();
-
-            // Login Log Create
-            $ip = getRealIP();
-            $exist = \App\Models\UserLogin::where('user_ip', $ip)->first();
-            $userLogin = new \App\Models\UserLogin();
-
-            if ($exist) {
-                $userLogin->longitude =  $exist->longitude;
-                $userLogin->latitude =  $exist->latitude;
-                $userLogin->city =  $exist->city;
-                $userLogin->country_code = $exist->country_code;
-                $userLogin->country =  $exist->country;
-            } else {
-                $info = json_decode(json_encode(getIpInfo()), true);
-                $userLogin->longitude =  @implode(',', $info['long']);
-                $userLogin->latitude =  @implode(',', $info['lat']);
-                $userLogin->city =  @implode(',', $info['city']);
-                $userLogin->country_code = @implode(',', $info['code']);
-                $userLogin->country =  @implode(',', $info['country']);
-            }
-
-            $userAgent = osBrowser();
-            $userLogin->user_id = $user->id;
-            $userLogin->user_ip =  $ip;
-            $userLogin->browser = @$userAgent['browser'];
-            $userLogin->os = @$userAgent['os_platform'];
-            $userLogin->save();
+            $this->storeLoginLog($user);
 
             if ($user->profile_complete == 0) {
                 return redirect()->route('user.profile.complete')->with('success', 'Logged in! Please complete your profile first.');
@@ -157,6 +131,7 @@ class AuthController extends Controller
         $pending = session()->get('pending_order');
         Auth::guard('web')->login($user);
         $request->session()->regenerate();
+        $this->storeLoginLog($user);
         if ($pending) {
             session()->put('pending_order', $pending);
         }
@@ -235,6 +210,7 @@ class AuthController extends Controller
         }
 
         Auth::guard('web')->login($user);
+        $this->storeLoginLog($user);
         return redirect()->route('user.home')->with('success', 'Logged in via ' . ucfirst($provider) . ' successfully.');
     }
 }
