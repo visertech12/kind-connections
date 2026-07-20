@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import LaravelPage from "@/components/LaravelPage";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/faq")({
   component: Page,
 });
 
 function Page() {
-  return <LaravelPage slug="home" />;
+  return <LaravelPage slug="faq" />;
 }
