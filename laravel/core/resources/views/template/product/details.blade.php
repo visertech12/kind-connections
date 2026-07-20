@@ -459,6 +459,7 @@
         $(document).ready(function() {
             var regularPrice = {{ $product->regular_price + 0 }};
             var extendedPrice = {{ $extendedPrice }};
+            var installFee = {{ $installFee + 0 }};
 
             function updateTotalPrice() {
                 var totalPrice = 0;
@@ -477,13 +478,16 @@
                 if ($('#support').is(':checked')) {
                     totalPrice += supportPromoPrice;
                 }
+                if ($('#install_service').is(':checked')) {
+                    totalPrice += installFee;
+                }
 
                 $('.grand-total').text(totalPrice.toFixed(2));
                 $('.support-price').text(supportPrice.toFixed(2));
                 $('.support-price-promo').text(supportPromoPrice.toFixed(2));
             }
 
-            $('input[name="license"], #support').on('change', updateTotalPrice);
+            $('input[name="license"], #support, #install_service').on('change', updateTotalPrice);
             updateTotalPrice();
         });
     </script>
