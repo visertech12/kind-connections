@@ -387,9 +387,6 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="https://resources.unlockthemes.com" target="_blank">Resources</a>
-                    </li>
                 </ul>
                 <div class="account-button">
                     @php
