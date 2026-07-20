@@ -46,6 +46,7 @@ Route::post('/item/order-guest/{slug}', [UserController::class, 'productOrderGue
 // Hosting
 Route::prefix('hosting')->name('hosting.')->group(function () {
     Route::get('/budget',            [FrontendController::class, 'hostingBudget'])->name('budget');
+    Route::get('/budget/sg',         [FrontendController::class, 'hostingBudgetSg'])->name('budget.sg');
     Route::get('/premium',           [FrontendController::class, 'hostingPremium'])->name('premium');
     Route::get('/premium/sg',        [FrontendController::class, 'hostingPremiumSg'])->name('premium.sg');
     Route::get('/vps',               [FrontendController::class, 'hostingVps'])->name('vps');

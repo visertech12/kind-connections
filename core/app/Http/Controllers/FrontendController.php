@@ -263,6 +263,7 @@ class FrontendController extends Controller
      | Hosting
      *-------------------------------------------------*/
     public function hostingBudget()    { return view('template.hosting.budget'); }
+    public function hostingBudgetSg()  { return view('template.hosting.budget'); }
     public function hostingPremium()
     {
         $page_title = 'Premium Hosting';
