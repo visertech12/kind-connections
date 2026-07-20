@@ -183,22 +183,35 @@
                             <div class="item-detail-block mb-4">
                                 <div class="item-detail-block-header">
                                     <span class="icon">
-                                        <i class="fa-solid fa-box-open text--base"></i>
+                                        <i class="fas fa-gift text--base"></i>
                                     </span>
                                     <div class="content">
-                                        <h4 class="title">What's Included</h4>
+                                        <h4 class="title">What will you get along with this script?</h4>
                                     </div>
                                 </div>
                                 <div class="item-detail-block-body">
-                                    <ul class="list-unstyled mb-0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;">
-                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Full Source Code</strong> — complete, uncompiled files</li>
-                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Database (SQL)</strong> — ready-to-import schema &amp; sample data</li>
-                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Installation Guide</strong> — step-by-step PDF documentation</li>
-                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>User &amp; Admin Docs</strong> — full usage documentation</li>
-                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Lifetime Free Updates</strong> — all future versions included</li>
-                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>6 Months Support</strong> — bug fixes &amp; setup help via tickets</li>
-                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>Commercial License</strong> — use on your own project</li>
-                                        <li><i class="fa-solid fa-circle-check text--base me-2"></i><strong>100% Malware Free</strong> — security scanned &amp; verified</li>
+                                    <ul class="item-detail-list single-view">
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Full Source Code</h6>
+                                                <p class="mb-0 text-secondary small">Complete and well-structured source code ready to deploy and customize.</p>
+                                            </div>
+                                        </li>
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Project Documentation</h6>
+                                                <p class="mb-0 text-secondary small">Step-by-step guide to help you install, configure, and run the platform smoothly.</p>
+                                            </div>
+                                        </li>
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Complete Project Database</h6>
+                                                <p class="mb-0 text-secondary small">Full database schema with seed data so you can get up and running instantly.</p>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
