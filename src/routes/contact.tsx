@@ -1,0 +1,10 @@
+import { createFileRoute } from "@tanstack/react-router";
+import LaravelPage from "@/components/LaravelPage";
+
+export const Route = createFileRoute("/contact")({
+  component: Page,
+});
+
+function Page() {
+  return <LaravelPage slug="contact" />;
+}
