@@ -21,11 +21,30 @@ class TicketController extends Controller
         return view('user.support.index', compact('pageTitle', 'tickets', 'ticketCount', 'fakePage'));
     }
 
-    public function ticketNew()
+    public function ticketNew($department = null)
     {
-        $pageTitle = "New Ticket";
+        $departments = [
+            'priority_support' => ['title' => 'Priority Support', 'desc' => 'For <b>technical support</b> and assistance with our software. You should have an <u>extended license</u> to use this department.', 'highlight' => 'bg--highlighted'],
+            'priority_install' => ['title' => 'Priority Install', 'desc' => 'For <b>installation support</b> and assistance. You should have an <u>extended license</u> to use this department.', 'highlight' => 'bg--highlighted'],
+            'paid_support' => ['title' => 'Paid Support', 'desc' => 'Get real-time issue resolution by our expert technical team.', 'highlight' => 'bg--superhighlighted'],
+            'tiktok' => ['title' => 'TikTok', 'desc' => 'For TikTok script, API, marketing and related service inquiries.', 'highlight' => 'bg--superhighlighted'],
+            'sales' => ['title' => 'Sales', 'desc' => 'For pre-sales and after-sales questions regarding all our services.', 'highlight' => ''],
+            'support' => ['title' => 'Support', 'desc' => 'Technical support and assistance of our software/script.', 'highlight' => ''],
+            'install' => ['title' => 'Installation', 'desc' => 'For installation support and assistance of our software/script.', 'highlight' => ''],
+            'hosting' => ['title' => 'Hosting & Domain', 'desc' => 'For technical support or questions, related to our domain and hosting services.', 'highlight' => ''],
+            'abuse' => ['title' => 'Abuse', 'desc' => 'For abuse reports related to our services.', 'highlight' => ''],
+            'billing' => ['title' => 'Billing', 'desc' => 'For billing-related questions and inquiries.', 'highlight' => ''],
+        ];
+
+        if (!$department || !isset($departments[$department])) {
+            $pageTitle = "Select Department for New Ticket";
+            return view('user.support.department', compact('pageTitle', 'departments'));
+        }
+
+        $selectedDepartment = $departments[$department];
+        $pageTitle = "New Ticket - " . $selectedDepartment['title'];
         $user = auth()->user();
-        return view('user.support.create', compact('pageTitle', 'user'));
+        return view('user.support.create', compact('pageTitle', 'user', 'department', 'selectedDepartment'));
     }
 
     public function ticketStore(Request $request)
