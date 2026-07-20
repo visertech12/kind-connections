@@ -6,6 +6,7 @@
                         : null;
     $demoUrl         = $attrs['Demo URL'] ?? null;
     $extendedPrice   = isset($attrs['Extended Price']) ? (float) $attrs['Extended Price'] : 0;
+    $installFee      = isset($attrs['Install Fee']) ? (float) $attrs['Install Fee'] : 19;
     $versionCode     = $product->version_code ?? $attrs['Version'] ?? null;
     $pRegular        = (float) $product->getOriginal('regular_price');
     $schemaLow       = $extendedPrice > 0 ? min($pRegular, $extendedPrice) : $pRegular;
@@ -241,6 +242,38 @@
                                     </a>
                                 @endif
                             </div>
+                        </div>
+
+                        <div class="ds-card ds-card--white ds-card--bordered">
+                            <h5 class="ds-card-title">
+                                <i class="fa-solid fa-screwdriver-wrench text--base me-2"></i>
+                                Demo Install Service
+                            </h5>
+                            <p class="ds-price-note mb-3">
+                                Let our experts install and configure a live demo of this product on your server. Includes setup, database, sample data and basic configuration.
+                            </p>
+                            <ul class="ds-meta-list mb-3">
+                                <li class="ds-meta-item">
+                                    <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> Full script installation</span>
+                                </li>
+                                <li class="ds-meta-item">
+                                    <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> Demo data import</span>
+                                </li>
+                                <li class="ds-meta-item">
+                                    <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> Domain &amp; SSL configuration</span>
+                                </li>
+                                <li class="ds-meta-item">
+                                    <span class="ds-meta-key"><i class="fa-solid fa-check text--base me-1"></i> 7 days post-install support</span>
+                                </li>
+                            </ul>
+                            <div class="ds-price-row mb-2">
+                                <span class="ds-license-name">Service Fee</span>
+                                <span class="ds-license-price">${{ $installFee + 0 }} USD</span>
+                            </div>
+                            <a href="{{ route('support') }}?subject=Demo+Install+Service+for+{{ urlencode($productName) }}" class="btn btn--base outline w-100 text-center">
+                                <span class="icon"><i class="fa-solid fa-rocket"></i></span>
+                                Request Install Service
+                            </a>
                         </div>
 
                         <div class="ds-card ds-card--white ds-card--bordered">
