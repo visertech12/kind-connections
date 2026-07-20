@@ -148,7 +148,7 @@
             <li class="total-list__item flex-between"> <span class="text">Total due today</span> <span class="fw-bold">${{ number_format($total, 2) }}</span> </li>
           </ul>
           <div class="sidebar__form">
-            <form action="{{ route('user.product.order', $product->slug) }}" method="post" id="placeOrderForm">
+            <form action="{{ auth()->check() ? route('user.product.order', $product->slug) : route('product.order.guest', $product->slug) }}" method="post" id="placeOrderForm">
               @csrf
               <input type="hidden" name="license" value="{{ $license }}">
               <input type="hidden" name="extend_support" value="{{ $extend_support ? 1 : 0 }}">
