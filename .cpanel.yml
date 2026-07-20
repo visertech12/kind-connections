@@ -1,12 +1,7 @@
 ---
 deployment:
   tasks:
-    # Change DEPLOYPATH to your cPanel target folder.
-    # Common values:
-    #   - /home/CPANEL_USER/public_html/                (main domain)
-    #   - /home/CPANEL_USER/public_html/yourapp/        (subfolder)
-    #   - /home/CPANEL_USER/subdomain.example.com/      (subdomain)
-    - export DEPLOYPATH=/home/CPANEL_USER/public_html/
+    - export DEPLOYPATH=/home/gepnqwpi/payments.unlockthemes.com/
     - /bin/mkdir -p $DEPLOYPATH
 
     # Copy the whole Laravel app (public files + core) to the deploy path.
