@@ -71,6 +71,13 @@
                                 <div class="form-hint">Leave blank or 0 if no extended license</div>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label">Server Install Service Fee ($)</label>
+                                <input type="number" step="0.01" min="0" name="install_fee" class="form-control" value="{{ old('install_fee', @$product->attributes['Install Fee']) }}" placeholder="19.00">
+                                <div class="form-hint">Charged when buyer chooses "Install &amp; configure on my server". Leave blank to use default ($19).</div>
+                            </div>
+                        </div>
                     </div>
                     {{-- Hidden input sends 0 when Free is selected --}}
                     <input type="hidden" name="free_price_override" id="free_price_override" value="{{ $isFreeProduct ? '1' : '0' }}">
@@ -100,6 +107,7 @@
                         $attributes = $product->attributes ? (array) $product->attributes : [];
                         unset($attributes['Demo URL']);
                         unset($attributes['Extended Price']);
+                        unset($attributes['Install Fee']);
                     @endphp
                     @forelse($attributes as $key => $value)
                         <div class="form-row" style="margin-bottom:12px">
