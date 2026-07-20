@@ -108,7 +108,7 @@ Route::middleware('auth:web')->prefix('user')->name('user.')->group(function () 
 
         // Tickets
         Route::get('/tickets',          [TicketController::class, 'ticketIndex'])->name('ticket.index');
-        Route::get('/tickets/new',      [TicketController::class, 'ticketNew'])->name('ticket.new');
+        Route::get('/tickets/new/{department?}', [TicketController::class, 'ticketNew'])->name('ticket.new');
         Route::post('/tickets/create',  [TicketController::class, 'ticketStore'])->name('ticket.store');
         Route::get('/tickets/view/{ticket}', [TicketController::class, 'ticketDetails'])->name('ticket.details');
         Route::post('/tickets/reply/{ticket}', [TicketController::class, 'ticketReply'])->name('ticket.reply');
