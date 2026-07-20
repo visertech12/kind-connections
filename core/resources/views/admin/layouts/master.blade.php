@@ -643,6 +643,15 @@
             </div>
 
             <div class="nav-section">
+                <div class="nav-section__title">Contact</div>
+                <div class="nav-item">
+                    <a href="{{ route('admin.contact.index') }}" class="nav-link {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}">
+                        <span class="nav-icon"><i class="fas fa-envelope"></i></span> Contact Messages
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav-section">
                 <div class="nav-section__title">System</div>
                 <div class="nav-item">
                     <a href="{{ route('admin.setting.index') }}" class="nav-link {{ request()->routeIs('admin.setting.*') ? 'active' : '' }}">
