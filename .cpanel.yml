@@ -3,15 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/gepnqwpi/unlockthemes.99scripts.com/
     - /bin/mkdir -p $DEPLOYPATH
-
-    # Copy the whole Laravel app (public files + core) to the deploy path.
-    - /bin/cp -R laravel/. $DEPLOYPATH
-
-    # Make sure Laravel's writable dirs exist and are writable.
-    - /bin/mkdir -p $DEPLOYPATH/core/storage/framework/cache
-    - /bin/mkdir -p $DEPLOYPATH/core/storage/framework/sessions
-    - /bin/mkdir -p $DEPLOYPATH/core/storage/framework/views
-    - /bin/mkdir -p $DEPLOYPATH/core/storage/logs
-    - /bin/mkdir -p $DEPLOYPATH/core/bootstrap/cache
-    - /bin/chmod -R 775 $DEPLOYPATH/core/storage
-    - /bin/chmod -R 775 $DEPLOYPATH/core/bootstrap/cache
+    - /bin/cp -R . $DEPLOYPATH
