@@ -470,7 +470,7 @@
                         </div>
 
                         <div class="pm-support-options">
-                            <input type="checkbox" name="install_service" id="install_service" hidden />
+                            <input type="checkbox" name="install_service" id="install_service" value="1" hidden />
                             <label for="install_service" class="ds-license-item pm-support-item">
                                 <span class="ds-license-checkbox"></span>
                                 <span class="ds-license-info">
