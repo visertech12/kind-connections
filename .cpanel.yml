@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/gepnqwpi/unlockthemes.unlockthemes.com/
+    - export DEPLOYPATH=/home/gepnqwpi/unlockthemes.99scripts.com/
     - /bin/mkdir -p $DEPLOYPATH
 
     # Copy the whole Laravel app (public files + core) to the deploy path.
