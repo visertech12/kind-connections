@@ -65,6 +65,9 @@ class ProductController extends Controller
         if ($request->extended_price > 0 && $request->free_price_override != '1') {
             $attrs['Extended Price'] = $request->extended_price;
         }
+        if ($request->filled('install_fee') && (float) $request->install_fee > 0) {
+            $attrs['Install Fee'] = (float) $request->install_fee;
+        }
         if ($request->has('detail_keys') && is_array($request->detail_keys)) {
             foreach ($request->detail_keys as $index => $key) {
                 if (!empty($key)) {
@@ -133,6 +136,9 @@ class ProductController extends Controller
         }
         if ($request->extended_price > 0 && $request->free_price_override != '1') {
             $attrs['Extended Price'] = $request->extended_price;
+        }
+        if ($request->filled('install_fee') && (float) $request->install_fee > 0) {
+            $attrs['Install Fee'] = (float) $request->install_fee;
         }
         if ($request->has('detail_keys') && is_array($request->detail_keys)) {
             foreach ($request->detail_keys as $index => $key) {
