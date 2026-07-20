@@ -371,6 +371,7 @@
         "use strict";
         let regularPrice = parseFloat('{{ getAmount($product->regular_price) }}');
         let extendedPrice = parseFloat('{{ !empty($attrs['Extended Price']) ? getAmount($attrs['Extended Price']) : number_format($product->regular_price * 6, 0, '.', '') }}');
+        let installFee = parseFloat('{{ !empty($attrs['Install Fee']) ? (float)$attrs['Install Fee'] : 0 }}') || 0;
 
         function calculatePrice() {
             let license = $('input[name="license"]:checked').val();
@@ -386,10 +387,14 @@
                 total += supportPromo;
             }
 
+            if ($('#install_service').is(':checked')) {
+                total += installFee;
+            }
+
             $('.grand-total').text(total.toFixed(2));
         }
 
-        $('input[name="license"], input[name="extend_support"]').on('change', function() {
+        $('input[name="license"], input[name="extend_support"], input[name="install_service"]').on('change', function() {
             calculatePrice();
         });
 
