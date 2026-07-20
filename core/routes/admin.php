@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\LubricantController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\DepositController;
+use App\Http\Controllers\Admin\ContactMessageController;
 
 Route::namespace('Admin')->group(function () {
 
@@ -86,6 +87,14 @@ Route::namespace('Admin')->group(function () {
             Route::post('reply/{id}', [SupportTicketController::class, 'ticketReplySend'])->name('reply');
             Route::post('delete/{id}', [SupportTicketController::class, 'ticketDelete'])->name('delete');
             Route::get('download/{ticket}', [SupportTicketController::class, 'ticketDownload'])->name('download');
+        });
+
+        // Contact Messages
+        Route::prefix('contact-messages')->name('contact.')->group(function () {
+            Route::get('/', [ContactMessageController::class, 'index'])->name('index');
+            Route::get('view/{id}', [ContactMessageController::class, 'show'])->name('show');
+            Route::post('reply/{id}', [ContactMessageController::class, 'reply'])->name('reply');
+            Route::post('delete/{id}', [ContactMessageController::class, 'destroy'])->name('delete');
         });
 
         // Manual Deposits — Approve / Reject
