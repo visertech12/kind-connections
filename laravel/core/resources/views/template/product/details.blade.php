@@ -76,6 +76,18 @@
 @section('content')
     <div class="item-detail py-60">
         <div class="container">
+            <div class="hackproof-banner mb-4" role="alert" style="display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:12px;background:linear-gradient(90deg,#0b3d2e,#0f5a44);color:#e8fff5;border:1px solid #17a673;box-shadow:0 4px 18px rgba(23,166,115,.15)">
+                <span style="flex:0 0 auto;width:42px;height:42px;border-radius:50%;background:#17a673;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </span>
+                <div style="flex:1;line-height:1.4">
+                    <strong style="display:block;font-size:15px;color:#fff">100% Hack-Proof &amp; Malware-Tested Script</strong>
+                    <span style="font-size:13px;opacity:.9">Tired of hacked websites and broken scripts? We sell only clean, security-hardened, malware-tested products — verified safe before release.</span>
+                </div>
+                <span class="d-none d-md-inline" style="font-size:12px;padding:6px 10px;border:1px solid rgba(255,255,255,.35);border-radius:20px;color:#fff;white-space:nowrap">
+                    <i class="fa-solid fa-check-circle me-1"></i> Verified Safe
+                </span>
+            </div>
             <div class="row gy-4">
 
                 <div class="col-lg-8">
