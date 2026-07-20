@@ -349,6 +349,7 @@ class UserController extends Controller
             'slug' => $slug,
             'license' => $request->input('license'),
             'extend_support' => $request->boolean('extend_support'),
+            'install_service' => $request->boolean('install_service'),
         ]);
 
         return redirect()->route('user.login')->with('info', 'Please log in to complete your purchase.');
@@ -368,11 +369,13 @@ class UserController extends Controller
             
             $license = $pending['license'];
             $extend_support = $pending['extend_support'];
+            $install_service = !empty($pending['install_service']);
             
             $pRegular = (float) $product->getOriginal('regular_price');
             $attrs    = $product->getOriginal('attributes');
             $attrs    = is_array($attrs) ? $attrs : (json_decode($attrs, true) ?: []);
             $pExtended = isset($attrs['Extended Price']) ? (float) $attrs['Extended Price'] : 0;
+            $installFee = isset($attrs['Install Fee']) ? (float) $attrs['Install Fee'] : 19;
 
             $price = ($license == '1') ? $pRegular : ($pExtended > 0 ? $pExtended : $pRegular * 6);
 
@@ -388,6 +391,9 @@ class UserController extends Controller
             $total = $licensePrice;
             if ($extend_support) {
                 $total += $supportPromo;
+            }
+            if ($install_service) {
+                $total += $installFee;
             }
 
             // Create Invoice
@@ -418,6 +424,19 @@ class UserController extends Controller
                 $item2->description = 'Extended Support (6 months)';
                 $item2->amount      = $supportPromo;
                 $item2->save();
+            }
+
+            if ($install_service) {
+                $item3              = new \App\Models\InvoiceItem();
+                $item3->invoice_id  = $invoice->id;
+                $item3->description = 'Server Install Service — install & configure on buyer server (' . $product->getOriginal('name') . ')';
+                $item3->amount      = $installFee;
+                $item3->details     = json_encode([
+                    'product_id' => $product->id,
+                    'slug'       => $slug,
+                    'addon'      => 'server_install_service',
+                ]);
+                $item3->save();
             }
 
             session()->forget('pending_order');
