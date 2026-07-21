@@ -82,6 +82,10 @@
                                 <input type="text" name="email" value="{{old('email')}}" class="form--control" id="email" autocomplete="off" required>
                             </div>
                             <div class="col-md-12 form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" value="{{old('username')}}" class="form--control" id="username" autocomplete="off" pattern="[A-Za-z0-9_-]{3,40}" title="Letters, numbers, dashes and underscores only (min 3 chars)" required>
+                            </div>
+                            <div class="col-md-12 form-group">
                                 <label for="password">Password</label>
                                 <input type="password" name="password" class="form--control" id="password" autocomplete="off" required>
                             </div>
