@@ -659,6 +659,12 @@ class UserController extends Controller
             return view('user.invoice.payment_confirm', compact('pageTitle', 'gatewayCurrency', 'amount', 'charge', 'finalAmount', 'payload'));
         }
 
+        // Manual gateway: first step submits amount only, show instructions + proof upload
+        if (!$request->hasFile('proof') && $gatewayCurrency->method_code >= 1000) {
+            $pageTitle = 'Complete Your Deposit';
+            return view('user.deposit.confirm', compact('pageTitle', 'gatewayCurrency', 'amount', 'charge', 'finalAmount'));
+        }
+
         // Handle proof file upload
         $proofFilename = null;
         if ($request->hasFile('proof')) {
