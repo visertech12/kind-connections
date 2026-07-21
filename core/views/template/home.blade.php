@@ -20,39 +20,6 @@
                     <div class="col-xl-8 col-lg-9">
 
 
-                        <div class="banner-review">
-                            <div class="banner-review-thumb">
-                                <img src="{{ asset('assets/images/thumbs/envato.png') }}" alt="">
-                            </div>
-
-
-                            <div class="banner-review-content">
-                                <div class="banner-review-rating">
-                                    <ul class="list">
-                                        <li class="item">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="item">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="item">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="item">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                        <li class="item">
-                                            <i class="fa fa-star"></i>
-                                        </li>
-                                    </ul>
-                                    <span class="count">4.8</span>
-                                </div>
-                                <span class="banner-review-text">Based on <span class="highlight-text">2000+ reviews</span></span>
-                            </div>
-                        </div>
-
-
-
                         <div class="banner-content">
                             <span class="banner-content__subtitle fs-18">Looking for a One-Stop Solution Provider?</span>
                             <h1 class="banner-content__title">360 Degree Solution For Your Digital Business</h1>
