@@ -13,26 +13,36 @@ class ClientInfo{
 	{
 	    $ip = getRealIP();
 
+	    $country = $city = $area = $code = $long = $lat = '';
 
-	    $xml = @simplexml_load_file("http://www.geoplugin.net/xml.gp?ip=" . $ip);
+	    try {
+	        $ch = curl_init("http://ip-api.com/json/" . $ip . "?fields=status,country,countryCode,region,city,lat,lon,query");
+	        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	        curl_setopt($ch, CURLOPT_TIMEOUT, 4);
+	        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
+	        $res = curl_exec($ch);
+	        curl_close($ch);
+	        if ($res) {
+	            $j = json_decode($res, true);
+	            if (is_array($j) && (($j['status'] ?? '') === 'success')) {
+	                $country = (string)($j['country'] ?? '');
+	                $city    = (string)($j['city'] ?? '');
+	                $area    = (string)($j['region'] ?? '');
+	                $code    = (string)($j['countryCode'] ?? '');
+	                $long    = (string)($j['lon'] ?? '');
+	                $lat     = (string)($j['lat'] ?? '');
+	            }
+	        }
+	    } catch (\Throwable $e) {}
 
-
-	    $country = @$xml->geoplugin_countryName;
-	    $city = @$xml->geoplugin_city;
-	    $area = @$xml->geoplugin_areaCode;
-	    $code = @$xml->geoplugin_countryCode;
-	    $long = @$xml->geoplugin_longitude;
-	    $lat = @$xml->geoplugin_latitude;
-
-	    $data['country'] = $country ?? [];
-	    $data['city'] = $city ?? [];
-	    $data['area'] = $area ?? [];
-	    $data['code'] = $code ?? [];
-	    $data['long'] = $long ?? [];
-	    $data['lat'] = $lat ?? [];
-	    $data['ip'] = $ip;
-	    $data['time'] = date('Y-m-d h:i:s A');
-
+	    $data['country'] = $country;
+	    $data['city']    = $city;
+	    $data['area']    = $area;
+	    $data['code']    = $code;
+	    $data['long']    = $long;
+	    $data['lat']     = $lat;
+	    $data['ip']      = $ip;
+	    $data['time']    = date('Y-m-d h:i:s A');
 
 	    return $data;
 	}
