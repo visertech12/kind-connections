@@ -40,41 +40,58 @@
     </div>
 </div>
 
-<div class="table-card mt-4">
-    <div class="table-card__inner d-flex flex-wrap flex-between align-center gap-2">
-        <div class="table-card__heading">
-            <h2 class="table-card__title"><span class="icon"><i class="fas fa-info-circle"></i></span> Payment Instructions &amp; Proof </h2>
-        </div>
-    </div>
-    <div class="table-card__table">
-        <div class="p-4">
-            <div class="mt-2 fs-14 mb-4">
-                <div class="text--base d-block">{!! $gatewayCurrency->method->description ?? '<em>No instructions provided. Please contact support.</em>' !!}</div>
+<div class="row gy-4 mt-1">
+    <div class="col-lg-6">
+        <div class="table-card h-100">
+            <div class="table-card__inner d-flex flex-wrap flex-between align-center gap-2">
+                <div class="table-card__heading">
+                    <h2 class="table-card__title"><span class="icon"><i class="fas fa-info-circle"></i></span> Payment Instructions </h2>
+                </div>
             </div>
-
-            <form action="{{ route('user.deposit.insert') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="hidden" name="gateway" value="{{ $gatewayCurrency->method_code }}">
-                <input type="hidden" name="method_currency" value="{{ $gatewayCurrency->currency }}">
-                <input type="hidden" name="amount" value="{{ $amount }}">
-
-                <div class="row gy-3">
-                    <div class="col-md-12 form-group">
-                        <label class="form--label">Transaction Reference / Note</label>
-                        <textarea name="note" class="form--control form-control" rows="2" placeholder="e.g. Bank transfer ref: TXN123456"></textarea>
-                    </div>
-
-                    <div class="col-md-12 form-group">
-                        <label class="form--label">Payment Proof <span class="text--danger">*</span></label>
-                        <input type="file" name="proof" class="form--control form-control" accept=".jpg,.jpeg,.png,.pdf" required>
-                        <div class="mt-2 text--danger fs-14">Upload screenshot or receipt (jpg, png, pdf; max 4MB).</div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn--primary btn--md w-100">Submit Deposit Request</button>
+            <div class="table-card__table">
+                <div class="p-4">
+                    <div class="fs-14 text--base">
+                        {!! $gatewayCurrency->method->description ?? '<em>No instructions provided. Please contact support.</em>' !!}
                     </div>
                 </div>
-            </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="table-card h-100">
+            <div class="table-card__inner d-flex flex-wrap flex-between align-center gap-2">
+                <div class="table-card__heading">
+                    <h2 class="table-card__title"><span class="icon"><i class="fas fa-cloud-upload-alt"></i></span> Submit Payment Proof </h2>
+                </div>
+            </div>
+            <div class="table-card__table">
+                <div class="p-4">
+                    <form action="{{ route('user.deposit.insert') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="gateway" value="{{ $gatewayCurrency->method_code }}">
+                        <input type="hidden" name="method_currency" value="{{ $gatewayCurrency->currency }}">
+                        <input type="hidden" name="amount" value="{{ $amount }}">
+
+                        <div class="row gy-3">
+                            <div class="col-md-12 form-group">
+                                <label class="form--label"><i class="fas fa-hashtag"></i> Transaction Reference / Note</label>
+                                <textarea name="note" class="form--control form-control" rows="3" placeholder="e.g. Bank transfer ref: TXN123456"></textarea>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <label class="form--label"><i class="fas fa-file-image"></i> Payment Proof <span class="text--danger">*</span></label>
+                                <input type="file" name="proof" class="form--control form-control" accept=".jpg,.jpeg,.png,.pdf" required>
+                                <div class="mt-2 fs-14 text--muted"><i class="fas fa-shield-alt"></i> Upload screenshot or receipt (jpg, png, pdf; max 4MB).</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn--primary btn--md w-100"><i class="fas fa-paper-plane"></i> Submit Deposit Request</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
