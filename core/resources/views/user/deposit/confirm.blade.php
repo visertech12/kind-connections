@@ -1,10 +1,12 @@
 @extends('user.layouts.app')
 @section('panel')
-<div class="row gy-4 justify-content-center">
-    <div class="col-lg-8">
-        <div class="custom--card card">
-            <div class="card-header">
-                <h4 class="card-header__title"><i class="fas fa-file-invoice-dollar"></i> Complete Your Deposit</h4>
+<div class="row gy-4">
+    <div class="col-12">
+        <div class="custom--card card h-auto">
+            <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <div class="card-header__left d-flex flex-wrap align-items-center gap-2">
+                    <h2 class="card-header__title"> <span class="icon"><i class="fas fa-file-invoice-dollar"></i></span> Complete Your Deposit </h2>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive mb-4">
@@ -19,9 +21,9 @@
                     </table>
                 </div>
 
-                <div class="alert alert-info">
-                    <h5 class="mb-2"><i class="fas fa-info-circle"></i> Payment Instructions</h5>
-                    <div>{!! $gatewayCurrency->method->description ?? '<em>No instructions provided. Please contact support.</em>' !!}</div>
+                <div class="mt-2 text--danger fs-14 mb-4">
+                    <strong><i class="fas fa-info-circle"></i> Payment Instructions:</strong>
+                    <div class="text--base mt-2 d-block">{!! $gatewayCurrency->method->description ?? '<em>No instructions provided. Please contact support.</em>' !!}</div>
                 </div>
 
                 <form action="{{ route('user.deposit.insert') }}" method="POST" enctype="multipart/form-data">
@@ -30,18 +32,22 @@
                     <input type="hidden" name="method_currency" value="{{ $gatewayCurrency->currency }}">
                     <input type="hidden" name="amount" value="{{ $amount }}">
 
-                    <div class="form-group mb-3">
-                        <label class="form--label">Transaction Reference / Note</label>
-                        <textarea name="note" class="form--control form-control" rows="2" placeholder="e.g. Bank transfer ref: TXN123456"></textarea>
-                    </div>
+                    <div class="row gy-3">
+                        <div class="col-md-12 form-group">
+                            <label class="form--label">Transaction Reference / Note</label>
+                            <textarea name="note" class="form--control form-control" rows="2" placeholder="e.g. Bank transfer ref: TXN123456"></textarea>
+                        </div>
 
-                    <div class="form-group mb-3">
-                        <label class="form--label">Payment Proof <span class="text--danger">*</span></label>
-                        <input type="file" name="proof" class="form--control form-control" accept=".jpg,.jpeg,.png,.pdf" required>
-                        <small class="text-muted">Upload screenshot or receipt (jpg, png, pdf; max 4MB).</small>
-                    </div>
+                        <div class="col-md-12 form-group">
+                            <label class="form--label">Payment Proof <span class="text--danger">*</span></label>
+                            <input type="file" name="proof" class="form--control form-control" accept=".jpg,.jpeg,.png,.pdf" required>
+                            <div class="mt-2 text--danger fs-14">Upload screenshot or receipt (jpg, png, pdf; max 4MB).</div>
+                        </div>
 
-                    <button type="submit" class="btn btn--primary w-100">Submit Deposit Request</button>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn--primary btn--md w-100">Submit Deposit Request</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
