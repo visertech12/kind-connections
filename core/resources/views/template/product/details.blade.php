@@ -257,46 +257,53 @@
                                     </span>
                                     <div class="content">
                                         <h4 class="title">Code Quality Report</h4>
-                                        <p class="text mb-0" style="font-size:13px;color:#6b7280">Independent audit of the source you're about to buy.</p>
                                     </div>
                                 </div>
                                 <div class="item-detail-block-body">
-                                    <div class="cq-grid">
-                                        <div class="cq-card">
-                                            <div class="cq-label">PHPStan</div>
-                                            <div class="cq-value">{{ $cq['phpstan'] }}</div>
-                                            <div class="cq-bar"><span style="width:100%"></span></div>
-                                        </div>
-                                        <div class="cq-card">
-                                            <div class="cq-label">Test Coverage</div>
-                                            <div class="cq-value">{{ $cq['coverage'] }}</div>
-                                            <div class="cq-bar"><span style="width:{{ (int) filter_var($cq['coverage'], FILTER_SANITIZE_NUMBER_INT) ?: 86 }}%"></span></div>
-                                        </div>
-                                        <div class="cq-card">
-                                            <div class="cq-label">Lighthouse</div>
-                                            <div class="cq-value">{{ $cq['lighthouse'] }}</div>
-                                            <div class="cq-bar"><span style="width:{{ (int) filter_var($cq['lighthouse'], FILTER_SANITIZE_NUMBER_INT) ?: 98 }}%"></span></div>
-                                        </div>
-                                        <div class="cq-card">
-                                            <div class="cq-label">Standard</div>
-                                            <div class="cq-value">{{ $cq['psr'] }}</div>
-                                            <div class="cq-bar"><span style="width:100%"></span></div>
-                                        </div>
-                                        <div class="cq-card">
-                                            <div class="cq-label">Security</div>
-                                            <div class="cq-value">{{ $cq['cve'] }}</div>
-                                            <div class="cq-bar"><span style="width:100%"></span></div>
-                                        </div>
-                                        <div class="cq-card">
-                                            <div class="cq-label">Duplication</div>
-                                            <div class="cq-value">{{ $cq['duplication'] }}</div>
-                                            <div class="cq-bar"><span style="width:96%"></span></div>
-                                        </div>
-                                    </div>
-                                    <p class="text mt-3 mb-0" style="font-size:12px;color:#6b7280">
-                                        <i class="fa-solid fa-circle-check text--base"></i>
-                                        Report generated with PHPStan, PHPUnit, Google Lighthouse and Composer Audit at last release.
-                                    </p>
+                                    <ul class="item-detail-list single-view">
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">PHPStan — {{ $cq['phpstan'] }}</h6>
+                                                <p class="mb-0 text-secondary small">Static analysis passes at the strictest level with zero errors.</p>
+                                            </div>
+                                        </li>
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Test Coverage — {{ $cq['coverage'] }}</h6>
+                                                <p class="mb-0 text-secondary small">Automated PHPUnit tests cover core business logic and critical paths.</p>
+                                            </div>
+                                        </li>
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Lighthouse Score — {{ $cq['lighthouse'] }}</h6>
+                                                <p class="mb-0 text-secondary small">Google Lighthouse audit for performance, accessibility, best practices and SEO.</p>
+                                            </div>
+                                        </li>
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Coding Standard — {{ $cq['psr'] }}</h6>
+                                                <p class="mb-0 text-secondary small">Fully compliant with modern PHP coding standards for clean, maintainable code.</p>
+                                            </div>
+                                        </li>
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Security — {{ $cq['cve'] }}</h6>
+                                                <p class="mb-0 text-secondary small">Verified against Composer Audit — no known vulnerabilities in dependencies.</p>
+                                            </div>
+                                        </li>
+                                        <li class="item-detail-list-item align-items-start">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <div>
+                                                <h6 class="fw-semibold mb-1">Code Duplication — {{ $cq['duplication'] }}</h6>
+                                                <p class="mb-0 text-secondary small">Minimal duplication keeps the codebase DRY and easy to extend.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
