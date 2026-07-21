@@ -112,15 +112,20 @@ class AuthController extends Controller
         $request->validate([
             'firstname' => 'required|string|max:40',
             'lastname'  => 'required|string|max:40',
+            'username'  => 'required|string|min:3|max:40|alpha_dash|unique:users,username',
             'email'     => 'required|string|email|max:40|unique:users',
             'password'  => 'required|string|min:6',
+        ], [
+            'username.unique' => 'This username is already taken.',
+            'email.unique'    => 'This email is already registered.',
+            'username.alpha_dash' => 'Username may only contain letters, numbers, dashes and underscores.',
         ]);
 
         $user            = new User();
         $user->firstname = $request->firstname;
         $user->lastname  = $request->lastname;
         $user->email     = $request->email;
-        $user->username  = strtolower(trim($request->firstname)) . rand(100, 999);
+        $user->username  = strtolower(trim($request->username));
         $user->password  = Hash::make($request->password);
         $user->status    = 1;
         $user->ev        = 1;
