@@ -17,6 +17,7 @@
                             <th>Gateway</th>
                             <th>Deposited on</th>
                             <th>Amount</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,7 @@
                                     </div>
                                 </td>
                                 <td data-label="Amount"><span class="fw-bold">${{ getAmount($log->final_amo) }} USD</span></td>
+                                <td data-label="Status">{!! $log->statusBadge !!}</td>
                             </tr>
                         @endforeach
                     </tbody>
