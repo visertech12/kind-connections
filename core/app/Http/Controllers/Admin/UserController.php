@@ -40,10 +40,10 @@ class UserController extends Controller
 
         $request->validate([
             'email'  => 'required|email|unique:users,email,' . $user->id,
-            'mobile' => 'nullable|unique:users,mobile,' . $user->id,
+            'mobile' => 'nullable',
             'status' => 'required|in:0,1',
         ], [
-            'mobile.unique' => 'This mobile number is already used by another user.',
+            
         ]);
 
         $user->firstname = $request->firstname;

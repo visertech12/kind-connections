@@ -66,14 +66,14 @@ class UserController extends Controller
     {
         $request->validate([
             'country'  => 'required',
-            'mobile'   => 'required|unique:users,mobile,' . auth('web')->id(),
+            'mobile'   => 'required',
             'address'  => 'required',
             'city'     => 'required',
             'region'   => 'required',
             'zip_code' => 'required',
             'username' => 'required|unique:users,username,' . auth('web')->id(),
         ], [
-            'mobile.unique' => 'This mobile number is already used. Please enter another mobile number.',
+            
         ]);
 
         $user = auth('web')->user();
