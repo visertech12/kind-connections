@@ -639,7 +639,7 @@ class UserController extends Controller
 
         $request->validate([
             'amount' => 'required|numeric|gt:0',
-            'proof'  => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:4096',
+            'proof'  => 'sometimes|file|mimes:jpg,jpeg,png,pdf|max:4096',
         ]);
 
         $amount = $request->amount;
