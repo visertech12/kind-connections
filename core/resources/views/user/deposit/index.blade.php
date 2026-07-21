@@ -1,14 +1,15 @@
 @extends('user.layouts.app')
 @section('panel')
 
-<div class="table-card">
-    <div class="table-card__inner d-flex flex-wrap flex-between align-center gap-2">
-        <div class="table-card__heading">
-            <h2 class="table-card__title"><span class="icon"><i class="fas fa-wallet"></i></span> Make a Deposit </h2>
-        </div>
-    </div>
-    <div class="table-card__table">
-        <div class="p-4">
+<div class="row gy-4">
+    <div class="col-12">
+        <div class="custom--card card h-auto">
+            <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <div class="card-header__left d-flex flex-wrap align-items-center gap-2">
+                    <h2 class="card-header__title"> <span class="icon"><i class="fas fa-wallet"></i></span> Make a Deposit </h2>
+                </div>
+            </div>
+            <div class="card-body">
                 @if($gatewayCurrency->isEmpty())
                 <div class="not-data-found">
                     <span class="not-data-found__icon"><i class="fas fa-credit-card"></i></span>
@@ -42,6 +43,7 @@
                     </div>
                 </form>
                 @endif
+            </div>
         </div>
     </div>
 </div>
