@@ -36,7 +36,7 @@
 
                                     <p class="text-center mt-2">@lang('You have requested') <b class="text-success">{{ showAmount($amount) }} {{ gs('cur_text') }}</b>, @lang('Please pay')
 
-                                        <b class="text-success">{{ showAmount($amount, currencyFormat:false) . ' ' . $gatewayCurrency->currency }}</b> @lang('for successful payment')
+                                        <b class="text-success">{{ showAmount($amount, false) . ' ' . $gatewayCurrency->currency }}</b> @lang('for successful payment')
 
                                     </p>
 
