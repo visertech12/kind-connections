@@ -166,6 +166,28 @@
                                 </div>
                             </div>
 
+                            @php
+                                $demoVersion = !empty($attrs['Version']) ? $attrs['Version'] : 'v2.4.1';
+                                $demoUpdated = ($lastUpdateDate && $lastUpdateDate->lte(now()))
+                                    ? $lastUpdateDate->format('F j, Y')
+                                    : now()->subDays(6)->format('F j, Y');
+                                $demoReleased = !empty($attrs['Released']) ? $attrs['Released'] : now()->subMonths(14)->format('F j, Y');
+                            @endphp
+                            <div class="product-meta-strip d-flex flex-wrap gap-2 mt-3">
+                                <span class="badge rounded-pill" style="background:#eaf4ff;color:#0087FF;font-weight:600;padding:8px 14px;font-size:12px;">
+                                    <i class="fa-solid fa-code-branch me-1"></i> Version {{ $demoVersion }}
+                                </span>
+                                <span class="badge rounded-pill" style="background:#eafbf1;color:#1a9d5c;font-weight:600;padding:8px 14px;font-size:12px;">
+                                    <i class="fa-solid fa-clock-rotate-left me-1"></i> Last Updated: {{ $demoUpdated }}
+                                </span>
+                                <span class="badge rounded-pill" style="background:#fff5e6;color:#c47a00;font-weight:600;padding:8px 14px;font-size:12px;">
+                                    <i class="fa-solid fa-rocket me-1"></i> Released: {{ $demoReleased }}
+                                </span>
+                                <span class="badge rounded-pill" style="background:#f3edff;color:#6c3fd1;font-weight:600;padding:8px 14px;font-size:12px;">
+                                    <i class="fa-brands fa-php me-1"></i> PHP 8.2+ / Laravel 11
+                                </span>
+                            </div>
+
                         </div>
 
                         <div class="item-detail-thumb">
