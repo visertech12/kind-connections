@@ -37,18 +37,8 @@
                             <div class="mt-2 text--danger fs-14" id="gateway-info"></div>
                         </div>
 
-                        <div class="col-md-12 form-group">
-                            <label for="note" class="form--label">Note / Reference (optional):</label>
-                            <textarea id="note" name="note" class="form--control form-control" rows="2" placeholder="e.g. Bank transfer ref: TXN123456"></textarea>
-                        </div>
-
-                        <div class="col-md-12 form-group">
-                            <label for="proof" class="form--label">Payment Proof (optional):</label>
-                            <input type="file" id="proof" name="proof" class="form--control form-control" accept=".jpg,.jpeg,.png,.pdf">
-                        </div>
-                        
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn--primary btn--md w-100">Submit Deposit Request</button>
+                            <button type="submit" class="btn btn--primary btn--md w-100">Continue to Payment Instructions</button>
                         </div>
                     </div>
                 </form>

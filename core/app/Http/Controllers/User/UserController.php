@@ -639,7 +639,7 @@ class UserController extends Controller
 
         $request->validate([
             'amount' => 'required|numeric|gt:0',
-            'proof'  => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:4096',
+            'proof'  => 'sometimes|file|mimes:jpg,jpeg,png,pdf|max:4096',
         ]);
 
         $amount = $request->amount;
@@ -657,6 +657,12 @@ class UserController extends Controller
             $pageTitle = 'Confirm Invoice Payment';
             $payload = $request->payload;
             return view('user.invoice.payment_confirm', compact('pageTitle', 'gatewayCurrency', 'amount', 'charge', 'finalAmount', 'payload'));
+        }
+
+        // Manual gateway: first step submits amount only, show instructions + proof upload
+        if (!$request->hasFile('proof') && $gatewayCurrency->method_code >= 1000) {
+            $pageTitle = 'Complete Your Deposit';
+            return view('user.deposit.confirm', compact('pageTitle', 'gatewayCurrency', 'amount', 'charge', 'finalAmount'));
         }
 
         // Handle proof file upload
