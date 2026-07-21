@@ -1053,3 +1053,14 @@ function getOSIcon($os) {
     return 'fa-solid fa-desktop';
 }
 
+function getBrowserIcon($browser) {
+    $b = strtolower($browser);
+    if (strpos($b, 'chrome') !== false) return 'fa-brands fa-chrome';
+    if (strpos($b, 'firefox') !== false) return 'fa-brands fa-firefox';
+    if (strpos($b, 'safari') !== false) return 'fa-brands fa-safari';
+    if (strpos($b, 'edge') !== false) return 'fa-brands fa-edge';
+    if (strpos($b, 'opera') !== false) return 'fa-brands fa-opera';
+    if (strpos($b, 'ie') !== false || strpos($b, 'internet explorer') !== false) return 'fa-brands fa-internet-explorer';
+    return 'fa-solid fa-globe';
+}
+
