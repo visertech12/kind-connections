@@ -72,6 +72,15 @@
             }
         }
     </script>
+    <style>
+        .cq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+        @media (max-width:576px){.cq-grid{grid-template-columns:repeat(2,1fr)}}
+        .cq-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px}
+        .cq-label{font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.4px}
+        .cq-value{font-size:16px;font-weight:700;color:#0f172a;margin:4px 0 10px}
+        .cq-bar{height:6px;background:#e5e7eb;border-radius:99px;overflow:hidden}
+        .cq-bar > span{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);border-radius:99px}
+    </style>
 @endpush
 @section('content')
     <div class="item-detail py-60">
