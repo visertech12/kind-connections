@@ -131,11 +131,11 @@ class SocialLogin
 			$userLogin->country =  $exist->country;
 		} else {
 			$info = json_decode(json_encode(getIpInfo()), true);
-			$userLogin->longitude =  @implode(',', $info['long']);
-			$userLogin->latitude =  @implode(',', $info['lat']);
-			$userLogin->city =  @implode(',', $info['city']);
-			$userLogin->country_code = @implode(',', $info['code']);
-			$userLogin->country =  @implode(',', $info['country']);
+			$userLogin->longitude    = is_array(@$info['long'])    ? @implode(',', $info['long'])    : (string)@$info['long'];
+			$userLogin->latitude     = is_array(@$info['lat'])     ? @implode(',', $info['lat'])     : (string)@$info['lat'];
+			$userLogin->city         = is_array(@$info['city'])    ? @implode(',', $info['city'])    : (string)@$info['city'];
+			$userLogin->country_code = is_array(@$info['code'])    ? @implode(',', $info['code'])    : (string)@$info['code'];
+			$userLogin->country      = is_array(@$info['country']) ? @implode(',', $info['country']) : (string)@$info['country'];
 		}
 
 		$userAgent = osBrowser();
