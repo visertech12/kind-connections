@@ -148,7 +148,16 @@ class FrontendController extends Controller
             \Illuminate\Support\Facades\Log::warning('ProductView tracking failed: ' . $e->getMessage());
         }
 
-        return view('template.product.details', compact('product', 'page_title', 'related_products', 'canonical_url'));
+        $hasPurchased = false;
+        if (auth()->check()) {
+            $hasPurchased = \App\Models\InvoiceItem::whereHas('invoice', function ($q) {
+                    $q->where('user_id', auth()->id())->where('paid', 1);
+                })
+                ->where('details', 'like', '%"product_slug":"' . $product->slug . '"%')
+                ->exists();
+        }
+
+        return view('template.product.details', compact('product', 'page_title', 'related_products', 'canonical_url', 'hasPurchased'));
     }
 
     public function downloadFreeProduct(Request $request, $slug)
@@ -168,6 +177,34 @@ class FrontendController extends Controller
         }
 
         // Log the download
+        \App\Models\ProductDownload::create([
+            'product_id' => $product->id,
+            'ip_address' => $request->ip(),
+        ]);
+
+        return redirect($product->file_link);
+    }
+
+    public function downloadPurchasedProduct(Request $request, $slug)
+    {
+        $product = \App\Models\Product::where('slug', $slug)->where('status', 1)->firstOrFail();
+
+        $hasPurchased = \App\Models\InvoiceItem::whereHas('invoice', function ($q) {
+                $q->where('user_id', auth()->id())->where('paid', 1);
+            })
+            ->where('details', 'like', '%"product_slug":"' . $product->slug . '"%')
+            ->exists();
+
+        if (!$hasPurchased) {
+            $notify[] = ['error', 'You have not purchased this product.'];
+            return back()->withNotify($notify);
+        }
+
+        if (!$product->file_link) {
+            $notify[] = ['error', 'Download link is not available right now. Please contact support.'];
+            return back()->withNotify($notify);
+        }
+
         \App\Models\ProductDownload::create([
             'product_id' => $product->id,
             'ip_address' => $request->ip(),

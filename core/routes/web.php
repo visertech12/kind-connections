@@ -40,6 +40,7 @@ Route::get('/products/featured', [FrontendController::class, 'productFeatured'])
 Route::get('/product/{slug}',    [FrontendController::class, 'productCategory'])->name('product.category');
 Route::get('/item/{slug}',       [FrontendController::class, 'productDetails'])->name('product.details');
 Route::get('/item/download/{slug}', [FrontendController::class, 'downloadFreeProduct'])->name('product.download.free');
+Route::get('/item/purchased/download/{slug}', [FrontendController::class, 'downloadPurchasedProduct'])->middleware('auth')->name('product.download.paid');
 Route::post('/item/checkout/{slug}', [FrontendController::class, 'productCheckout'])->name('product.checkout');
 Route::post('/item/order-guest/{slug}', [UserController::class, 'productOrderGuest'])->name('product.order.guest');
 
