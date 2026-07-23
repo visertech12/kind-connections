@@ -611,10 +611,10 @@
     <button type="button" class="ifa-close" aria-label="Close" onclick="document.getElementById('installFloatAd').classList.add('is-hidden')">&times;</button>
     <div class="ifa-icon"><i class="fas fa-bolt"></i></div>
     <div class="ifa-body">
-        <p class="ifa-title">Auto Script Install Service</p>
-        <p class="ifa-text">Script install karne ka tension? Humari team apki hosting par fully setup kar degi — sirf order karein!</p>
+        <p class="ifa-title">AI Agent Website Builder</p>
+        <p class="ifa-text">Website banane ki tension chhodein! Humari AI agent app apke clients ki website khud create kar ke degi — bina kisi technical masle ke!</p>
         <button type="button" class="ifa-cta" onclick="document.querySelector('[data-bs-target=&quot;#staticBackdrop&quot;]')?.click();setTimeout(function(){var c=document.getElementById('install_service');if(c&&!c.checked){c.checked=true;c.dispatchEvent(new Event('change'));}},350);">
-            <i class="fas fa-download"></i> Install Karwayen
+            <i class="fas fa-bolt"></i> Abhi Try Karein
         </button>
     </div>
 </div>
