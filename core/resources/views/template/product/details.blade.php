@@ -459,7 +459,12 @@
                 Live Preview
             </a>
         @endif
-        @if ($pRegular <= 0)
+        @if (!empty($hasPurchased))
+            <a href="{{ route('product.download.paid', $product->slug) }}" class="btn btn--base w-100">
+                <span class="icon"><i class="fas fa-download"></i></span>
+                Download Now
+            </a>
+        @elseif ($pRegular <= 0)
             <a href="{{ route('product.download.free', $product->slug) }}" class="btn btn--base w-100">
                 <span class="icon"><i class="fas fa-download"></i></span>
                 Get for Free
