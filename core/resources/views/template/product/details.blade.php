@@ -590,6 +590,37 @@
 @endsection
 
 @push('script')
+@push('style')
+<style>
+    .install-float-ad{position:fixed;left:20px;bottom:20px;z-index:9990;max-width:320px;background:linear-gradient(135deg,#0d6efd 0%,#0087ff 100%);color:#fff;border-radius:14px;box-shadow:0 12px 32px rgba(0,135,255,.35);padding:14px 16px 14px 14px;display:flex;gap:12px;align-items:flex-start;animation:ifaSlideUp .5s ease both,ifaPulse 2.6s ease-in-out infinite 1s;font-family:inherit}
+    .install-float-ad.is-hidden{display:none}
+    .install-float-ad .ifa-icon{width:44px;height:44px;flex:0 0 44px;background:#fff;color:#0087ff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+    .install-float-ad .ifa-body{flex:1;min-width:0}
+    .install-float-ad .ifa-title{font-weight:700;font-size:14px;line-height:1.25;margin:0 0 4px;color:#fff}
+    .install-float-ad .ifa-text{font-size:12.5px;line-height:1.4;margin:0 0 8px;color:rgba(255,255,255,.92)}
+    .install-float-ad .ifa-cta{display:inline-block;background:#ffb725;color:#111;font-weight:700;font-size:12.5px;padding:6px 12px;border-radius:8px;text-decoration:none}
+    .install-float-ad .ifa-cta:hover{background:#ffc44d;color:#111}
+    .install-float-ad .ifa-close{position:absolute;top:6px;right:8px;background:transparent;border:0;color:#fff;font-size:16px;line-height:1;cursor:pointer;opacity:.85}
+    .install-float-ad .ifa-close:hover{opacity:1}
+    .install-float-ad{position:fixed}
+    @keyframes ifaSlideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+    @keyframes ifaPulse{0%,100%{box-shadow:0 12px 32px rgba(0,135,255,.35)}50%{box-shadow:0 12px 40px rgba(255,183,37,.55)}}
+    @media (max-width:575px){.install-float-ad{left:10px;right:10px;bottom:10px;max-width:none}}
+</style>
+@endpush
+
+<div class="install-float-ad" id="installFloatAd" role="complementary" aria-label="Auto Script Install Service">
+    <button type="button" class="ifa-close" aria-label="Close" onclick="document.getElementById('installFloatAd').classList.add('is-hidden')">&times;</button>
+    <div class="ifa-icon"><i class="fas fa-bolt"></i></div>
+    <div class="ifa-body">
+        <p class="ifa-title">Auto Script Install Service 🚀</p>
+        <p class="ifa-text">Script install karne ka tension? Humari expert team apki hosting par script fully setup kar degi — sirf order karein aur relax!</p>
+        <button type="button" class="ifa-cta" onclick="document.querySelector('[data-bs-target=&quot;#staticBackdrop&quot;]')?.click();setTimeout(function(){var c=document.getElementById('install_service');if(c&&!c.checked){c.checked=true;c.dispatchEvent(new Event('change'));}},350);">
+            <i class="fas fa-download"></i> Install Karwayen
+        </button>
+    </div>
+</div>
+
     <script>
         $(document).ready(function() {
             var regularPrice = {{ $product->regular_price + 0 }};
